@@ -1,28 +1,22 @@
 version: '2'
 services:
   ckan:
-    build:
-      context: .
-      args:
-        POSTGRES_USER: postgres
-        POSTGRES_PASS: mysecretpassword
-        POSTGRES_HOST: postgres
-        POSTGRES_DB: postgres
-        SOLR_HOST: solr
-        SOLR_USER: solr
+    image: nhong/ckan
     ports:
-     - "80:80"
-     - "443:443"
+     - "3433:8080"
     depends_on:
      - postgres
      - solr
+    links:
+     - postgres:ckan-postgres
+     - solr:ckan-solr
   postgres:
     image: postgres
     ports:
-     - "5432:5432"
+     - "5432"
     volumes:
-     - /opt/ckan/data:/var/lib/postgresql/data
+     - /var/lib/postgresql/data
   solr:
     image: nhong/solr-tomcat
     ports:
-     - "8983:8983"
+     - "8983"
