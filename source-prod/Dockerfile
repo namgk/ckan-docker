@@ -14,7 +14,7 @@ RUN mv /etc/ckan/default/development.ini /etc/ckan/default/production.ini
 RUN sed -i "s/Listen 80/Listen 8080/" /etc/apache2/ports.conf
 
 EXPOSE 8080
-VOLUME ["/etc/ckan/default","/etc/apache2","/var/log/apache2"]
+VOLUME ["/etc/apache2","/var/log/apache2"]
 
 COPY apache2-foreground /usr/local/bin/
 

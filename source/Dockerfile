@@ -13,8 +13,10 @@ RUN pip install -r src/ckan/requirements.txt
 RUN mkdir -p etc/ckan/default
 RUN paster make-config ckan /etc/ckan/default/development.ini
 RUN cp src/ckan/who.ini etc/ckan/default/who.ini
+RUN mkdir /ckan-plugins
+ENV PYTHONPATH=/ckan-plugins
 
-VOLUME ["/etc/ckan/default"]
+VOLUME ["/etc/ckan/default", "/ckan-plugins"]
 WORKDIR src/ckan
 EXPOSE 5000
 

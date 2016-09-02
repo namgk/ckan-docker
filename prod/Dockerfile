@@ -8,9 +8,10 @@ RUN wget http://packaging.ckan.org/python-ckan_$VER-trusty_amd64.deb
 RUN dpkg -i python-ckan_2.5-trusty_amd64.deb
 
 RUN rm *.deb
+RUN mkdir /ckan-plugins
 
 EXPOSE 8080
-VOLUME ["/etc/ckan/default","/var/log/apache2"]
+VOLUME ["/etc/ckan/default","/var/log/apache2","/ckan-plugins"]
 
 COPY apache2-foreground /usr/local/bin/
 CMD ["apache2-foreground"]
