@@ -9,6 +9,7 @@ RUN dpkg -i python-ckan_2.5-trusty_amd64.deb
 
 RUN rm *.deb
 RUN mkdir /ckan-plugins
+ENV PYTHONPATH=/ckan-plugins
 
 EXPOSE 8080
 VOLUME ["/etc/ckan/default","/var/log/apache2","/ckan-plugins"]
