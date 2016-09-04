@@ -10,7 +10,7 @@ SOLR=ckan-solr
 # Some aliases
 dockerexec='sudo docker exec -it'
 dockerrun='sudo docker run -v /etc/localtime:/etc/localtime:ro'
-ckanlinkedrun="$dockerrun --rm --link $SOLR --link $POSTGRES --env-file ~/.ckan/ckan.env nhong/ckan"
+ckanlinkedrun="$dockerrun --rm --link $SOLR --link $POSTGRES --env-file $HOME/.ckan/ckan.env nhong/ckan"
 postgresexec="$dockerexec -u postgres $POSTGRES"
 
 # create datastore user, will prompt for password
