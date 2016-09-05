@@ -9,7 +9,7 @@ server {
 	server_name _;
 
 	location / {
-		proxy_pass http://ckan:3433/;
+		proxy_pass http://ckan:8080/;
 		add_header Cache-Control "no-cache";
         	proxy_set_header Host $host;
         	proxy_cache cache;
