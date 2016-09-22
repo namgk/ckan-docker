@@ -44,5 +44,9 @@
  ```docker stop ckan ```
 
  ```docker start ckan```
+ 
+ or you can continue step 6.
+ 
+ ```inside the container> apachectl restart```
 
 7. Develop the plugins in the plugins folder, this folder is mounted in the container. If there's python code, the ckan container needs to be restarted. If there's only static files like html css, just restart the web browser
