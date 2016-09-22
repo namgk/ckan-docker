@@ -30,10 +30,14 @@
  go to <http://localhost:3333>
 
 6. Add plugin to CKAN
+
+ clone the plugin into plugins folder in step 5.
  
  ```docker exec -it ckan bash```
 
- ```inside the container> pip install -e git+http://<plugin repo>#egg=<plugin name>```
+ ```inside the container> cd /src/<cloned plugin>```
+ 
+ ```inside the container> python setup.py develop ```
  
  ```inside the container> vi /etc/ckan/default/production.ini```
  
@@ -50,3 +54,7 @@
  ```inside the container> apachectl restart```
 
 7. Develop the plugins in the plugins folder, this folder is mounted in the container. If there's python code, the ckan container needs to be restarted. If there's only static files like html css, just restart the web browser
+
+8. Troubleshoot
+
+ ```docker exec -it ckan tail /var/log/apache2/ckan_default.error.log```
