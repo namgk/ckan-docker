@@ -1,4 +1,3 @@
-TODO: documentation - need to setup postgres database, users and  permissions before running
 
 1. Create a new network for CKAN, Solr and Postgres
 
