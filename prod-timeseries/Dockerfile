@@ -1,3 +1,6 @@
 FROM nhong/ckan
 
-RUN pip install -e git+https://github.com/namgk/ckan-timeseries.git#egg=datastore_ts
+RUN . /usr/lib/ckan/default/bin/activate
+
+RUN pip install ckanext-timeseries
+

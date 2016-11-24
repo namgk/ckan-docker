@@ -14,6 +14,7 @@ RUN ln -s /etc/tomcat6/ /usr/share/tomcat6/conf
 RUN sed -i "s/8080/8983/g" /etc/tomcat6/server.xml
 
 EXPOSE 8983
+VOLUME ["/var/lib/solr/data"]
 
 ENTRYPOINT ["/usr/share/tomcat6/bin/catalina.sh"]
 CMD ["run"]
