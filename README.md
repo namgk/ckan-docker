@@ -1,3 +1,4 @@
+Steps for a running CKAN environment (steps 1-5), and with plugin development (step 5-End)
 
 1. Create a new network for CKAN, Solr and Postgres
 
@@ -21,7 +22,17 @@
 
  ```docker run --net ckan --env-file ckan.env -it --rm nhong/ckan ckan sysadmin add <user>```
 
-5. Run CKAN with plugin dev
+5. Run CKAN 
+
+ Run the CKAN container:
+ 
+ ```docker run --net ckan --name ckan --env-file ckan.env -p 3333:8080 -d nhong/ckan```
+ 
+ DONE !!!
+ 
+ If you want to develop extension with CKAN, follow these extra steps:
+
+ Run CKAN with plugin dev (replace the above command):
  
  ```mkdir plugins```
 
